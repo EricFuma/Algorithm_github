@@ -39,12 +39,14 @@ class Solution:
             curr_nums.pop()
             
     '''
-    广度优先 —— 优化了，很快
+    # 广度优先 —— 优化了，很快
     '''
     def combine(self, n: int, k: int) -> List[List[int]]:
-        if n <= 0 or n < k or k == 0:
+        if n < k or n == 0 or k == 0:
             return []
-        queue, res = [], []
+        
+        res, queue = [], []
+        # 优化右边界
         for start in range(1, n+2-k):
             queue.append([start])
             while queue:
@@ -53,15 +55,9 @@ class Solution:
                     res.append(curr_nums)
                 else:
                     new_start = curr_nums[-1]
-                    
+                    # 优化右边界
                     for num in range(new_start+1, n+2-(k-len(curr_nums))):
                         curr_nums.append(num)
-                        if len(curr_nums) == k:
-                            res.append(curr_nums[:])
-                        else:
-                            queue.append(curr_nums[:])
+                        queue.append(curr_nums[:])
                         curr_nums.pop()
         return res
-
-            
-
