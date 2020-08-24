@@ -1,3 +1,6 @@
+'''
+2020.08.24
+'''
 # https://leetcode-cn.com/problems/permutations/
 '''
 给定一个 没有重复 数字的序列，返回其所有可能的全排列。
