@@ -37,7 +37,31 @@ class Solution:
                 self.improve_search(curr_nums, num+1, k, n, res)
             # 回溯
             curr_nums.pop()
-        
+            
+    '''
+    广度优先 —— 优化了，很快
+    '''
+    def combine(self, n: int, k: int) -> List[List[int]]:
+        if n <= 0 or n < k or k == 0:
+            return []
+        queue, res = [], []
+        for start in range(1, n+2-k):
+            queue.append([start])
+            while queue:
+                curr_nums = queue.pop(0)
+                if len(curr_nums) == k:
+                    res.append(curr_nums)
+                else:
+                    new_start = curr_nums[-1]
+                    
+                    for num in range(new_start+1, n+2-(k-len(curr_nums))):
+                        curr_nums.append(num)
+                        if len(curr_nums) == k:
+                            res.append(curr_nums[:])
+                        else:
+                            queue.append(curr_nums[:])
+                        curr_nums.pop()
+        return res
 
             
 
