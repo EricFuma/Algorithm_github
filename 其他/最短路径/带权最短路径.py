@@ -1,6 +1,7 @@
 # 以 743 题为例：https://leetcode-cn.com/problems/network-delay-time/
 '''
-Dijkstra算法适用于带权图、告知起点的最短路径的求解
+Dijkstra算法适用于带权图、告知起点的最短路径的求解（权值必需为正，权值有负的用贝尔曼-福德（Bellman-Ford）算法）
+https://www.cnblogs.com/OctoptusLian/p/9048532.html
 步骤：
 1. 构建邻接矩阵（可以按具体情况进行占位）
 2. 构造并初始化 visited 和 dis 序列/字典（注意占位pos的初始化，不能影响整体结果）
